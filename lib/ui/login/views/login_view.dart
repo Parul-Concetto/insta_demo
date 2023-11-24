@@ -3,13 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:insta_demo/routes/app_pages.dart';
 import 'package:insta_demo/ui/common/asset_images.dart';
+import 'package:insta_demo/ui/common/strings.dart';
 import 'package:insta_demo/ui/common/widgets/button_widget.dart';
+import 'package:insta_demo/ui/common/widgets/text_widget.dart';
+import 'package:insta_demo/ui/login/views/widget/login_form.dart';
 
-import '../../common/strings.dart';
-import '../controllers/dashboard_controller.dart';
+import '../controllers/login_controller.dart';
 
-class DashboardView extends GetView<DashboardController> {
-  const DashboardView({Key? key}) : super(key: key);
+class LoginView extends GetView<LoginController> {
+  const LoginView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +24,6 @@ class DashboardView extends GetView<DashboardController> {
               left: 0,
               right: 0,
               child: Container(
-                decoration: BoxDecoration(
-                    gradient: RadialGradient(
-                        radius: 5,
-                        colors: [Color(0xFF262628), Color(0xFF262628)])),
                 child: Image.asset(
                   PNGPath.bgImage,
                   fit: BoxFit.fill,
@@ -33,11 +31,11 @@ class DashboardView extends GetView<DashboardController> {
               ),
             ),
             Positioned(
-              bottom: 20,
+              top: 25,
+              bottom: 0,
               left: 0,
               right: 0,
               child: Container(
-                height: 380.h,
                 decoration: BoxDecoration(
                   color: context.theme.colorScheme.primary,
                   borderRadius: BorderRadius.only(
@@ -45,26 +43,48 @@ class DashboardView extends GetView<DashboardController> {
                     topRight: Radius.circular(20.r),
                   ),
                 ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 35.w),
+                child: SingleChildScrollView(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 30.h,
+                        height: 17.h,
                       ),
-                      CustomButton(
-                        text: signInWithGmail,
-                        onTap: () {},
-                        bgColor: context.theme.colorScheme.primaryContainer,
-                        textColor: context.theme.colorScheme.primary,
-                        isIconVisible: true,
-                        prefixIcon: PNGPath.google,
+                      Image.asset(
+                        PNGPath.backIcon,
+                        height: 36.h,
+                        width: 36.w,
+                        alignment: Alignment.topLeft,
+                      ).marginOnly(left: 10),
+                      SizedBox(
+                        height: 81.h,
                       ),
-                      CustomButton(
-                        text: signInWithMobile,
-                        onTap: () => Get.toNamed(Routes.LOGIN),
+                      Align(
+                        alignment: Alignment.center,
+                        child: CommonText(
+                          text: signInToInstagram,
+                          textColor: context.theme.colorScheme.primaryContainer,
+                          size: 36,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
+                      SizedBox(
+                        height: 13.h,
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional.center,
+                        child: CommonText(
+                          text: enterYourDetailsBelow,
+                          textColor:
+                              context.theme.colorScheme.secondaryContainer,
+                          size: 16.sp,
+                          fontFamily:
+                              context.theme.textTheme.labelSmall?.fontFamily,
+                          fontWeight: FontWeight.w500,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      LoginForm(controller: controller),
                       SizedBox(
                         height: 41.h,
                       ),
@@ -72,10 +92,14 @@ class DashboardView extends GetView<DashboardController> {
                       SizedBox(
                         height: 28.h,
                       ),
-                      Image.asset(
-                        PNGPath.logo,
-                        height: 40.h,
-                        width: 40.w,
+                      Align(
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          PNGPath.logo,
+                          height: 40.h,
+                          width: 40.w,
+                          alignment: Alignment.center,
+                        ),
                       ),
                     ],
                   ),

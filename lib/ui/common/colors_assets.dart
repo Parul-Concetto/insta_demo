@@ -33,9 +33,9 @@ class DarkThemeColors {
 
   //TODO:Change Dark Theme Colors here
 
-  static Color get primaryColor => const Color(0xFF252525);
+  static Color get primaryColor => const Color(0xFF0F111F);
 
-  static Color get secondaryColor => const Color(0xFF7b1fa2);
+  static Color get secondaryColor => const Color(0xFF26293E);
 
   static Color get errorColor => const Color(0xFFc62828);
 
@@ -47,9 +47,9 @@ class DarkThemeColors {
 
   static Color get textPrimary => const Color(0xFFFFFFFF);
 
-  static Color get textSecondary => const Color(0xB3FFFFFF);
+  static Color get textSecondary => const Color(0xFF9797BD);
 
-  static Color get textDisabled => const Color(0x80FFFFFF);
+  static Color get richText => const Color(0xFF43A2FA);
 
   static Color get backgroundColor => const Color(0xFF121212);
 

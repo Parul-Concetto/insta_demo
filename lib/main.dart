@@ -14,6 +14,8 @@ import 'package:insta_demo/ui/global/global_controller.dart';
 
 import 'ui/common/theme_resource.dart';
 
+String  initialRoute = Routes.INIT;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initServices();
@@ -43,20 +45,21 @@ class MyAppState extends State<MyApp> with GlobalController {
     super.initState();
   }
 
-  String get initialRoute =>
-      sharedPreferenceService.getLoggedInStatus() ? Routes.INIT : Routes.LOGIN;
+
+  /*String get initialRoute =>
+      sharedPreferenceService.getLoggedInStatus() ? Routes.INIT : Routes.DASHBOARD;*/
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),//TODO: Change design size
+      designSize: const Size(375, 812), //TODO: Change design size
       builder: (_, __) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         enableLog: true,
         initialBinding: GlobalBinding(),
         //  logWriterCallback:(message,__)=> AppLogger.getLogger().w(message),//TODO: check this
         initialRoute: initialRoute,
-        theme: ThemeResource().lightTheme,
+        theme: ThemeResource().darkTheme,
         darkTheme: ThemeResource().darkTheme,
         themeMode: ThemeResource().themeMode ?? ThemeMode.system,
         getPages: AppPages.routes,
@@ -73,9 +76,9 @@ class MyAppState extends State<MyApp> with GlobalController {
                 SafeArea(
                   child: AnimatedContainer(
                       height:
-                      Get.find<NetworkService>().isConnectedToInternet.value
-                          ? 0
-                          : 100.h,
+                          Get.find<NetworkService>().isConnectedToInternet.value
+                              ? 0
+                              : 100.h,
                       duration: Utils.animationDuration,
                       color: ThemeData().primaryColor,
                       child: Material(
@@ -86,10 +89,10 @@ class MyAppState extends State<MyApp> with GlobalController {
                                     .textTheme
                                     .labelMedium
                                     ?.copyWith(
-                                    fontSize: 40.sp,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onBackground))),
+                                        fontSize: 40.sp,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onBackground))),
                       )),
                 ),
                 Get.find<ProgressService>().showProgress.isTrue

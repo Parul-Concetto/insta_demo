@@ -1,5 +1,6 @@
 class StringConstants {
   StringConstants._();
+
   static const String noInternetConnection =
       'Please check your Internet connection';
   static const String posts = 'Posts';
@@ -12,7 +13,7 @@ const String loginPrefKey = 'isLoggedIn';
 
 const String loginTitle = 'Welcome Back';
 const String loginDesc = 'Please sign in to continue with us.';
-const String login = 'Login';
+const String signin = 'Sign in';
 const String dontHaveAccount = 'Don\'t have an account? ';
 const String signUp = 'Sign Up';
 
@@ -61,3 +62,11 @@ const String passwordNotMatched =
     'New password and confirm password not matched';
 const String containsCharacters = 'must contains only characters.';
 const String errSomethingWentWrong = 'Something went wrong';
+const String signInWithGmail = '  Sign in With Gmail';
+const String signInWithMobile = 'Sign in With Mobile';
+const String notAMember = 'Not A Member?';
+const String signupNow = ' SignUp Now';
+const String signInToInstagram = 'Sign in\n to Instagram';
+const String enterYourDetailsBelow = 'Enter your details below';
+const String mobileNo = 'Mobile No';
+const String searchHere = 'Search Here';

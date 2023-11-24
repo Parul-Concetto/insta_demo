@@ -8,9 +8,7 @@ import 'colors_assets.dart';
 import 'widgets/change_theme.dart';
 
 class ThemeResource {
-  static var fontType = getFontFamilyType(FontFamilyType.openSans);
-
-  static var openSansFont = getFontFamilyType(FontFamilyType.openSans);
+  static var fontType = getFontFamilyType(FontFamilyType.roboto);
 
   ThemeMode? themeMode;
 
@@ -19,16 +17,17 @@ class ThemeResource {
   //DarkTheme
   //TODO: change your dark theme according to your Ui
   final ThemeData darkTheme = ThemeData(
-    scaffoldBackgroundColor: DarkThemeColors.backgroundColor,
+    scaffoldBackgroundColor: DarkThemeColors.primaryColor,
     brightness: Brightness.dark,
     primaryColor: DarkThemeColors.primaryColor,
     secondaryHeaderColor: DarkThemeColors.secondaryColor,
     dividerColor: DarkThemeColors.dividerColor,
+    disabledColor: DarkThemeColors.richText,
     fontFamily: fontType,
     // border color
     buttonTheme: ButtonThemeData(
       buttonColor: DarkThemeColors.primaryColor,
-      disabledColor: DarkThemeColors.textDisabled,
+      disabledColor: DarkThemeColors.richText,
       focusColor: DarkThemeColors.secondaryColor,
     ),
     textTheme: TextTheme(
@@ -62,7 +61,8 @@ class ThemeResource {
         fontWeight: FontWeight.normal, //NORMAL
         color: DarkThemeColors.textPrimary,
       ),
-    ), colorScheme: ColorScheme(
+    ),
+    colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: DarkThemeColors.primaryColor,
       onSecondary: DarkThemeColors.secondaryColor.withOpacity(0.80),
@@ -119,7 +119,8 @@ class ThemeResource {
         titleSmall: TextStyle(
             fontSize: 40.0,
             fontWeight: FontWeight.normal, //NORMAL
-            color: LightThemeColors.textPrimary)), colorScheme: ColorScheme(
+            color: LightThemeColors.textPrimary)),
+    colorScheme: ColorScheme(
       brightness: Brightness.light,
       primary: LightThemeColors.primaryColor,
       onSecondary: LightThemeColors.secondaryColor.withOpacity(0.80),
